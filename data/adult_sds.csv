@@ -1,4 +1,3 @@
-"age","workclass","education","marital.status","occupation","relationship","race","sex","capital.gain","capital.loss","hours.per.week","native.country","income"
 20,"Private","Some-college","Never-married","Adm-clerical","Own-child","White","Female",0,0,20,"United-States","<=50K"
 47,"Private","11th","Married-civ-spouse","Machine-op-inspct","Wife","White","Female",0,0,40,"United-States","<=50K"
 76,"State-gov","Some-college","Widowed","Adm-clerical","Not-in-family","White","Female",0,0,24,"United-States","<=50K"

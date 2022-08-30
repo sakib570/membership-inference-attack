@@ -1,4 +1,3 @@
-"age","workclass","education","marital.status","occupation","relationship","race","sex","capital.gain","capital.loss","hours.per.week","native.country","income"
 23,"Private","Some-college","Never-married","Other-service","Other-relative","White","Female",0,0,25,"United-States","<=50K"
 25,"Self-emp-inc","Bachelors","Never-married","Sales","Not-in-family","White","Male",0,0,45,"United-States",">50K"
 23,"Private","Some-college","Never-married","Sales","Own-child","White","Female",0,0,28,"United-States","<=50K"
