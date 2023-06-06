@@ -683,7 +683,7 @@ def train_attack_model(attack_data, check_membership, n_hidden=50, learning_rate
 
 def shokri_attack(attack_df, mem_validation, nmem_validation, epochs):
     
-    predicted_membership, predicted_nmembership, true_membership, TP_idx, TN_idx  = [], [], [], [], []
+    predicted_membership, predicted_nmembership, true_membership, TP_idx, TN_idx , mpred_all, nmpred_all = [], [], [], [], [], [], []
 
     class_val = np.unique(attack_df['y'])
     ncval=attack_df.shape[1]-1
@@ -723,12 +723,15 @@ def shokri_attack(attack_df, mem_validation, nmem_validation, epochs):
             #print(np.argmax(mpred,axis=1)==0)
 
 
-            mpred = attack_model.predict(np.array(check_mem_feat))    
+            mpred = attack_model.predict(np.array(check_mem_feat))
             predicted_membership.append(np.argmax(mpred,axis=1) )
+            mpred_all.append(mpred)
+            
 
             nmpred = attack_model.predict(np.array(check_nmem_feat))    
-            predicted_nmembership.append(np.argmax(nmpred,axis=1) )        
-
+            predicted_nmembership.append(np.argmax(nmpred,axis=1) )
+            nmpred_all.append(nmpred)
+            
 
 
             TP_idx.append(check_mem_feat_idx[np.where(np.argmax(mpred,axis=1)==1)[0]])
@@ -747,7 +750,7 @@ def shokri_attack(attack_df, mem_validation, nmem_validation, epochs):
     pred_membership = np.concatenate([members,nonmembers])
     ori_membership = np.concatenate([np.ones(len(members)), np.zeros(len(nonmembers))])
     
-    return pred_membership, ori_membership, TP_idx_list, TN_idx_list
+    return pred_membership, ori_membership, TP_idx_list, TN_idx_list, mpred_all, nmpred_all
 
 
 # In[ ]:
